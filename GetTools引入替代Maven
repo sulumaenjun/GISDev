@@ -1,0 +1,27 @@
+
+替代Maven下载和管理jars的方法就是手动安装它们。比较适合单机不联网编程。
+
+首先，我们要获得GeoTools从下面网址：
+1、下载GeoTools的二进制版：http://sourceforge.net/projects/geotools/files；
+2、解压geotools-2.6.0-bin.zip文件到 C:\java\geotools-2.6.0文件夹.
+3、打开上述文件，可以看到GeoTools的所用jars文件，包括GeoAPI和JTS等类库；
+4、设置GeoTools作为NetBens的一个库：Tools->Libraries打开Librar管理器；
+5、点击“New Library”按钮；
+6、输入“GeoTools”作为库名，点OK；
+7、现在点击AddJar/Folder，并从上述路径中添加所有的jars；
+8、GeoTools包含了一个“EPSG”地图投影数据库，但是你也可以使用自己的，只是使用之前需要将存在的一些Jar包删掉。现在，就从Library Manager中移除下面这些插件：
+    gt-arcsde
+    gt-arcsde-common
+    gt-db2
+    gt-jdbc-db2
+    gt-oracle-spatial
+    gt-jdbc-oracle
+（EPSG数据库是一个Access数据库，并且转换为纯Java数据库HSQL以供我们使用。包含有：gt-epsg-h2
+    gt-epsg-oracle
+    gt-epsg-postgresql
+    gt-epsg-wkt-2.6）
+10、现在，就可以创建一个案例程序了，选择File->New Project;
+11,选择默认的Java Application；
+12 项目名为：Tutorial，主类名为：Quickstart；
+13、从项目窗口中打开案例，右键单击Libraries，选择Add Libraries，选择GeoTools。
+14、恭喜，You done. 
